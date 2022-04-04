@@ -6,15 +6,22 @@ using namespace std;
 
 void solve(int t){
     while (t--){
-        int n;
+        int n,count=0;
         cin >> n;
         if(n<10){
             cout << n << "\n";
             continue;
         }
         else{
-            cout << 9+(int(n/10)?())
+            for(int i=1;i<=n;i=(i*10)+1){
+                for(int j=1;j<=9;j++){
+                    if(i*j<=n){
+                        count++;
+                    }
+                }
+            }
         }
+        cout << count << "\n";
     }
 }
 
