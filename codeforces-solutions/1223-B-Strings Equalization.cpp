@@ -23,7 +23,9 @@ void solve(int t){
         if(fff==1){
             cout << "yes" << "\n";
         }
-        cout << "no" << "\n";
+        else{
+        cout << "no" << "\n";}
+        
         
     }
 }
