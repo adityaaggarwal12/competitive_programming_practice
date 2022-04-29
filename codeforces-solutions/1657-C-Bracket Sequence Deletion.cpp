@@ -6,14 +6,51 @@ using namespace std;
 
 void solve(int t){
     while (t--){
-        int n,x;
+        int n,one,two,count=0,start=0,indicator,reg=999999,palin=999999,indicator2;
         cin >> n;
-        vector<int> v;
-        for(int i=0;i<n;i++){
-            cin >> x;
-            v.push_back(x);
-        }
-        
+        string s;
+        cin >> s;
+        do{
+            indicator=0;one=0;two=0;reg=999999;palin=999999;indicator2=0;
+            for(int i=start;i<n;i++){
+                if(s[i]=='('){
+                    one++;
+                }else{
+                    two++;
+                }
+                if(two>one)break;
+                if(one==two){
+                    reg=i+1;
+                    indicator2=1;
+                    //cout << reg << "-reg" << "\n";
+                    break;
+                }
+            }
+            for(int i=start;i<n;i++){
+                if(i==start)continue; 
+                // cout << i << "\n";
+                for(int j=0;j<=((i-start)/2);j++){
+                    if(s[j+start]!=s[i-j]){
+                        break;
+                    }else if(j==((i-start)/2)){
+                        palin=i+1;
+                        indicator=1;
+                        // cout << "ooooo";
+                        //cout << reg << "-palin" << "\n";
+                        //cout << i <<" " << start  << "-uu" <<  "\n";
+                        break;
+                    }
+                }
+                if(indicator==1)break;
+            }
+            if(indicator==1 || indicator2==1){
+                count++;
+                start=min(reg,palin);
+                // cout << start << "oo" << "\n";
+            }
+        } while ((indicator!=0 || indicator2!=0) && start<n);
+
+        cout << count  << " " << n-start << "\n";
     }
 }
 
