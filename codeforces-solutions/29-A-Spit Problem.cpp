@@ -12,8 +12,16 @@ void solve(int t){
         int d[n];
         for(int i=0;i<n;i++){
             cin >>x[i]>>d[i];
-
         }
+        for(int i=0;i<n-1;i++){
+            for(int j=i+1;j<n;j++){
+                if(x[i]+d[i]==x[j] && x[j]+d[j]==x[i]){
+                    cout << "YES";
+                    return;
+                }
+            }
+        }
+        cout << "NO";   
 
         
     }
