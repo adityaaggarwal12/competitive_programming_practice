@@ -21,7 +21,7 @@ void solve(int t){
                 }
             }
         }
-        cout << "NO";   
+        cout << "NO";
 
         
     }
